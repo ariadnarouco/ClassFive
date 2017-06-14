@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+
+	<script type="text/javascript">
+		
+
+
+		function Auto(patente, peso){
+			this.patente = patente;
+			this.peso=peso;
+		}
+
+
+		function Camion(maximaCarga){
+			this.maximaCarga = maximaCarga;
+			this.carga=0;
+			this.autos = [];
+			this.autoValido = function(auto){
+				for(var a in this.autos){
+					if(this.autos[a].patente === auto.patente){
+						return false;
+						break;
+					}else{
+						var posibleCargaMaxima= this.carga + this.autos[a].peso;
+						if(posibleCargaMaxima > this.maximaCarga){	
+							return false;
+						}else{
+							return true;
+						}
+					}
+				}
+				return true;
+			};
+
+			this.agregarAutos = function(autos){
+				
+				for(var a in autos ){
+					if(this.autoValido(autos[a])){
+						this.autos.push(autos[a]);
+						this.carga = this.carga + autos[a].peso;											
+						console.log("Se agregó el auto con patente " + autos[a].patente + " y peso " + autos[a].peso);
+					}else{
+						console.log("Patente repetida, no se pudo agregar auto con patente " + autos[a].patente + " y peso " + autos[a].peso );
+					}
+				}
+			}
+		}
+
+
+
+		//Let the game begin
+		begin();
+		function begin(){
+			var c = new Camion(12);
+			var autos = [];
+			for (var i = 0; i < 10; i++) {
+				var a = new Auto('ARIA'+i, 10);
+				autos.push(a);
+			}
+			autos.push(new Auto('ARIA1', 10));
+
+
+			c.agregarAutos(autos);
+			console.log(c);
+		}
+
+
+
+
+	</script>
+	</body>
+</html>

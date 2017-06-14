@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Strings and Array methods</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			
+			var generator=0;
+			var peliculas = [];
+
+			function Pelicula(titulo){
+				this.titulo = titulo;
+				this.id = generator;
+				generator ++
+			}
+
+			while(true){
+				var titulo = prompt("Ingrese el titulo de la película");
+				var p = new Pelicula(titulo);
+
+				var continuar = "";
+				if(agregarPelicula(p)){
+					continuar = "Se pudo agregar la película " + p.titulo + ". Desea continuar?";
+				}else{
+					continuar = "No se pudo agregar la película " + p.titulo + ". Desea continuar?";
+				}
+
+				if(!confirm(continuar)){
+					break;
+				}
+			}
+
+
+
+			function agregarPelicula(pelicula){
+				if(peliculas.length !==0){
+					for(var p in peliculas){
+						if(peliculas[p].titulo !== pelicula.titulo){
+							peliculas.push(pelicula);
+						}else{
+							return false;
+						}
+					}
+				}else{
+					peliculas.push(pelicula);
+				}
+				return true;
+			}
+
+
+			
+
+		</script>
+	</body>
+	</html>

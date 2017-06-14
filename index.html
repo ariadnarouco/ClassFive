@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Strings and Array methods</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			var ejemplo= "Feliz cumple";
+			//Los strings pueden ser tratados como arrays sin tener que castearlo
+
+			//El charAt es solo a modo de consulta. 
+			console.log(ejemplo[0]);
+			console.log(ejemplo.charAt(0));
+			
+
+			//Me devuelve todo.
+			console.log("Ejemplo substring sin parametro:" +ejemplo.substring());
+			//Me devuelve desde el char 5 hasta el final. 
+			console.log("Ejemplo substring con un solo parametro:" +ejemplo.substring(4));
+			//Me devuelve solo los chars entre la posición 2 y 4. 
+			console.log("Ejemplo substring con dos parametros:" +ejemplo.substring(2,4));
+
+			console.log("Ejemplo Upper case:" +ejemplo.toUpperCase());
+			console.log("Ejemplo Lower case:" +ejemplo.toLowerCase());
+
+			console.log("Split: Separando por espacios:" + ejemplo.split(" "));
+			console.log("Split: Separando por letras:" + ejemplo.split("")  );
+			console.log("Split: Separando por la letra e:" + ejemplo.split("e"));
+			console.log("Split: Separando por las letras cu:" + ejemplo.split("cu"));
+			console.log("Split: si no encuentra la palabra, devuelve todo el string:" + ejemplo.split("a")  );
+
+			console.log("Métodos para arrays");
+			var ejemploArray= ["Feliz", "Cumple"];
+			console.log("Ejemplo de toString: " + ejemploArray.toString());
+			console.log("Ejemplo de push: " + ejemploArray.push("Aria   ") + ejemploArray);
+
+			//Junta los elementos y mete en el medio el separador
+			console.log("Ejemplo de join: " + ejemploArray.join("Aria"));
+
+			console.log(ejemploArray.sort());
+			var numeros = [1,10,20,3,30, 44, 41,6];
+			console.log("Ejemplo de ordenamiento de números, pero solo compara el primero: " + numeros.sort());
+
+			console.log("Ejemplo de ordenamiento de números de mayor a menor:  PREGUNTAR" + numeros.sort(function(a,b) {
+				return a-b
+			}));
+
+			console.log("Ejemplo pop: saca el último elemento del array: sacamos " + numeros.pop() +" y después tenemos en el array" + numeros);
+
+			console.log("Ejemplo reverse imprimde de atrás para adelante el array: " + numeros.reverse());
+
+			console.log("Ejemplo slice: devuelve una copia del array recortado: " + numeros.slice());
+
+			console.log("Ejemplo splice: (Offset_a_borrar, cant_elem_a_borrar, items_a_agregar)");
+
+		</script>
+	</body>
+	</html>
